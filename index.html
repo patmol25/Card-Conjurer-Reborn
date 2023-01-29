@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="mtg, magic, card, creator, custom, maker">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style-9.css">
+	<link rel="shortcut icon" href="core/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="core/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="core/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="core/favicon-16x16.png">
+	<link rel="manifest" href="core/site.webmanifest">
+	<script src='js/themes.js'></script>
+	<script src='js/htmx.min.js'></script>
+	<script defer src='js/main-1.js'></script>
+</head>
+<body>
+	<div class='background'></div>
+	<header class='readable-background'>
+		<h1 class='title center'>CARD CONJURER reborn</h1>
+	</header>
+	<div>
+		<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1"
+		    xmlns="http://www.w3.org/2000/svg"
+		    xmlns:xlink="http://www.w3.org/1999/xlink"
+		    xml:space="preserve" xmlns:serif="http://www.serif.com/"
+		    class='hamburger' onclick='toggleMenu()'>
+		    <path class='line1' d="M10,18L90,18L10,82" />
+		    <path class='line3' d="M10,82L90,82L10,18" />
+		    <path class='line2' d="M10,50L90,50" />
+		</svg>
+		<div class='circle'></div>
+		<div class='menu menu-hidden'>
+			<div class='main-menu'>
+				<h2>Navigation</h2>
+				<h3><a href="#" hx-get="index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Menu</a></h3>
+				<h3><a href="#" hx-get="creator/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Createur de Cartes</a></h3>
+				<h3><a href="#" hx-get="print/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Outil d'impression</a></h3>
+				<h3><a href="#" hx-get="askurza/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Ask Urza 2.0</a></h3>
+				<h3><a href="#" hx-get="phyrexian/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>"Générateur" de Phyrexian</a></h3>
+				<h3><a href='#' hx-get="about/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>A propos de Moi</a></h3>
+				<h3><a href='#' hx-get="theme/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Editeur de themes</a></h3>
+				<h3><a href='#' hx-get="legal/index.html" hx-target="#content" hx-trigger="click" onclick='toggleMenu()'>Légal</a></h3>
+			</div>
+		</div>
+		<div class='notification-container'></div>
+	</div>
+
+	<div id="content">
+		<div class='layer center'></div>
+		<div class='layer center'>
+			<h1>Bienvenue sur Card Conjurer Reborn</h1>
+			<h3>La version FR Locale de Card Conjurer</h3>
+			<h3>Le créateur de Proxy et de Funcard Magic the Gathering</h3>
+		</div>
+		<div class='layer center'></div>
+		<div class='layer readable-background center'>
+			<div class='sample-grid'>
+				<div class='animated-scene'><img src='img/samples/sample1.png' class='animated-card-1'></div>
+				<div class='vertical-center'>
+					<h1 class='padding margin-bottom'>Choisissez parmis une large variété de frames</h1>
+					<h3 class='padding margin-bottom'>Card Conjurer propose les Expéditions, les Inventions, les Frames Showcase, et bien d'autre encore. <a href="#" hx-get="creator" hx-target="#content" hx-trigger="click">Jetez y un oeil</a>!</h3>
+				</div>
+			</div>
+		</div>
+		<div class='layer center'>
+			<div class='sample-grid right'>
+				<div class='vertical-center'>
+					<h1 class='padding margin-bottom'>Customisez le contenu de vos rêves</h1>
+					<h3 class='padding margin-bottom'>Avec le niveau de modification de  Card Conjurer, vous avez une infinité de posibilité pour créer vos cartes. <a href="#" hx-get="creator" hx-target="#content" hx-trigger="click">Testez le</a>!</h3>
+				</div>
+				<div class='animated-scene'><img src='img/samples/sample2.png' class='animated-card-1 animation-delay-2'></div>
+			</div>
+		</div>
+		<div class='layer readable-background center'>
+			<div class='sample-grid'>
+				<div class='animated-scene'><img src='img/samples/sample3.png' class='animated-card-1 animation-delay-4'></div>
+				<div class='vertical-center'>
+					<h1 class='padding margin-bottom'>Pimpez vos cartes favorites</h1>
+					<h3 class='padding margin-bottom'>Importez facilement les informations de base de cartes existantes et redesignez les à votre guise.<a href="#" hx-get="creator" hx-target="#content" hx-trigger="click">Allez, on y va</a>!</h3>
+				</div>
+			</div>
+		</div>
+		<div class='layer center'>
+			<h1 class='margin-bottom'>Vous êtes prêt ?</h1>
+			<a href="#" hx-get="creator" hx-target="#content" hx-trigger="click"><h1>C'est Parti</h1></a>
+		</div>
+	</div>
+
+</body>
+</html>
