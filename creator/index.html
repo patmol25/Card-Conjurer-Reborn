@@ -222,7 +222,7 @@
 							<span class='checkmark'></span>
 						</label>
 						<h5 class='input-description margin-bottom'>Affichez les guidelines pour le texte, l'image, la
-							watermark et le set symbol</h5>
+							watermark et le set symbole</h5>
 						<label class='checkbox-container input margin-bottom'>Guidelines
 							<input id='show-guidelines' type='checkbox' onchange='drawCard();'>
 							<span class='checkmark'></span>
@@ -470,7 +470,7 @@
 								value=100 step=0.1 min=0>
 						</div>
 						<div class='input-grid'>
-							<button class='input' onclick='resetSetSymbol();'>Reset le Set Symbol</button>
+							<button class='input' onclick='resetSetSymbol();'>Reset le Set Symbole</button>
 						</div>
 					</div>
 					<div class='readable-background padding margin-bottom'>
@@ -494,7 +494,7 @@
 				</div>
 				<div id='creator-menu-watermark' class='hidden'>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='margin-bottom padding input-description'>Choose/upload your watermark</h5>
+						<h5 class='margin-bottom padding input-description'>Choisissez/téléchargez votre watermark</h5>
 						<div class='input-grid'>
 							<div class='padding drop-area'>
 								<h5 class='margin-bottom padding input-description'>Glissez-Déposez</h5>
@@ -510,26 +510,26 @@
 									onchange='getSetSymbolWatermark(this.value);'>
 							</div>
 						</div>
-						<h5 class='margin-bottom padding input-description'>Select lore-based watermarks</h5>
+						<h5 class='margin-bottom padding input-description'>Selectionnez une watermark du lore</h5>
 						<select class='input padding margin-bottom'
 							onchange='getSetSymbolWatermark(fixUri(this.value));'>
-							<option disabled selected='selected'>None</option>
-							<option disabled>General</option>
+							<option disabled selected='selected'>Aucune</option>
+							<option disabled>Genéral</option>
 							<option value="/img/watermarks/planeswalker.svg">Planeswalker</option>
 							<option value="/img/watermarks/misc-star.svg">DCI Star</option>
 							<option value="/img/watermarks/misc-dci.svg">DCI Logo</option>
 							<option disabled>Monocolors</option>
-							<option value="/img/watermarks/w.svg">White</option>
-							<option value="/img/watermarks/u.svg">Blue</option>
-							<option value="/img/watermarks/b.svg">Black</option>
-							<option value="/img/watermarks/r.svg">Red</option>
-							<option value="/img/watermarks/g.svg">Green</option>
-							<option disabled>Mechanics</option>
+							<option value="/img/watermarks/w.svg">Blanc</option>
+							<option value="/img/watermarks/u.svg">Bleu</option>
+							<option value="/img/watermarks/b.svg">Noir</option>
+							<option value="/img/watermarks/r.svg">Rouge</option>
+							<option value="/img/watermarks/g.svg">Vert</option>
+							<option disabled>Mechanique</option>
 							<option value="/img/watermarks/ability-foretell.svg">Foretell</option>
 							<option disabled>Phyrexian/Mirrodin</option>
 							<option value="/img/watermarks/phyrexian.svg">Phyrexian</option>
 							<option value="/img/watermarks/mirran.svg">Mirran</option>
-							<option disabled>Guilds (Ravnica)</option>
+							<option disabled>Guildes (Ravnica)</option>
 							<option value="/img/watermarks/guild-azorius.svg">Azorius</option>
 							<option value="/img/watermarks/guild-dimir.svg">Dimir</option>
 							<option value="/img/watermarks/guild-rakdos.svg">Rakdos</option>
@@ -540,13 +540,13 @@
 							<option value="/img/watermarks/guild-golgari.svg">Golgari</option>
 							<option value="/img/watermarks/guild-boros.svg">Boros</option>
 							<option value="/img/watermarks/guild-simic.svg">Simic</option>
-							<option disabled>Schools (Strixhaven)</option>
+							<option disabled>Ecoles (Strixhaven)</option>
 							<option value="/img/watermarks/school-silverquill.svg">Silverquill</option>
 							<option value="/img/watermarks/school-prismari.svg">Prismari</option>
 							<option value="/img/watermarks/school-witherbloom.svg">Witherbloom</option>
 							<option value="/img/watermarks/school-lorehold.svg">Lorehold</option>
 							<option value="/img/watermarks/school-quandrix.svg">Quandrix</option>
-							<option disabled>Families (New Capenna)</option>
+							<option disabled>Familles (New Capenna)</option>
 							<option value="/img/watermarks/family-brokers.svg">Brokers</option>
 							<option value="/img/watermarks/family-obscura.svg">Obscura</option>
 							<option value="/img/watermarks/family-maestros.svg">Maestros</option>
@@ -558,13 +558,13 @@
 							<option value="/img/watermarks/Abstraïn-Cotrog.svg">Cotrog</option>
 							<option value="/img/watermarks/Abstraïn-Eftark.svg">Eftark</option>
 							<option value="/img/watermarks/Abstraïn-Vibrion.svg">Vibrion</option>
-							<option disabled>Clans (Tarkir - Old Timeline)</option>
+							<option disabled>Clans (Tarkir - Ancienne Timeline)</option>
 							<option value="/img/watermarks/clan-abzan.svg">Abzan</option>
 							<option value="/img/watermarks/clan-jeskai.svg">Jeskai</option>
 							<option value="/img/watermarks/clan-sultai.svg">Sultai</option>
 							<option value="/img/watermarks/clan-mardu.svg">Mardu</option>
 							<option value="/img/watermarks/clan-temur.svg">Temur</option>
-							<option disabled>Clans (Tarkir - New Timeline)</option>
+							<option disabled>Clans (Tarkir - Nouvelle Timeline)</option>
 							<option value="/img/watermarks/clan-ojutai.svg">Ojutai</option>
 							<option value="/img/watermarks/clan-silumgar.svg">Silumgar</option>
 							<option value="/img/watermarks/clan-kolaghan.svg">Kolaghan</option>
@@ -580,7 +580,7 @@
 							<option value="/img/watermarks/Steampunk-noir.svg">Noir</option>
 							<option value="/img/watermarks/Steampunk-rouge.svg">Rouge</option>
 							<option value="/img/watermarks/Steampunk-vert.svg">Vert</option>
-							<option disabled>Unstable Factions (Bablovia)</option>
+							<option disabled>Factions de Unstable (Bablovia)</option>
 							<option value="/img/watermarks/faction-order-of-the-widget.svg">Order of the Widget</option>
 							<option value="/img/watermarks/faction-agents-of-sneak.svg">Agents of S.N.E.A.K.</option>
 							<option value="/img/watermarks/faction-league-of-dastardly-doom.svg">League of Dastardly
@@ -589,70 +589,70 @@
 							</option>
 							<option value="/img/watermarks/faction-crossbreed-labs.svg">Crossbreed Labs</option>
 							<option disabled>Custom</option>
-							<option value="/img/watermarks/purple.svg">Purple Mana</option>
+							<option value="/img/watermarks/purple.svg">Mana violet</option>
 							<option value="/img/watermarks/dnd.svg">D&D esperluette</option>
 						</select>
 						<h5 class='collapsible collapsed padding input-description' onclick='toggleCollapse(event);'>
-							How to find set codes
+							Comment trouver les codes de set
 						</h5>
 						<div class='padding'>
-							<h5 class='margin-top'>Set codes are the two-three character combinations that represent
-								sets. For sets released after 2015, the three-character set code can be found in the
-								lower left hand corner.</h5>
-							<h5 class='margin-top'>For older sets, the code may be different depending on your use:</h5>
-							<p class='margin-top padding'>Set symbol images are named using the same codes as used in <a
+							<h5 class='margin-top'>Les codes d'ensemble sont des combinaisons de deux ou trois caractères qui représentent des
+								ensembles. Pour les jeux publiés après 2015, le code de jeu à trois caractères se trouve dans le
+								coin inférieur gauche.</h5>
+							<h5 class='margin-top'>Pour les ensembles plus anciens, le code peut être différent en fonction de votre utilisation :</h5>
+							<p class='margin-top padding'>Les images des symboles de set sont nommées à l'aide des mêmes codes que ceux de<a
 									class='underline' href='https://scryfall.com/sets' target='_blank'>Scryfall</a>.</p>
-							<p class='padding'>For watermarks, please reference <a class='underline'
+							<p class='padding'>Pour les filigranes, veuillez vous référer à <a class='underline'
 									href='https://keyrune.andrewgioia.com/icons.html' target='_blank'>Keyrune</a>.</p>
 						</div>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='margin-bottom padding input-description'>Select watermark colors (left, right)</h5>
+						<h5 class='margin-bottom padding input-description'>Selecionnez la couleur de la watermark (gauche, droite))</h5>
 						<div class='input-grid margin-bottom'>
 							<select class='input' id='watermark-left' onchange='watermarkLeftColor(this.value);'>
-								<option value="none">None</option>
-								<option value="default">Actual Image</option>
-								<option value="#b79d58" selected="selected">White</option>
-								<option value="#8cacc5">Blue</option>
-								<option value="#5e5e5e">Black</option>
-								<option value="#c66d39">Red</option>
-								<option value="#598c52">Green</option>
-								<option value="#cab34d">Gold</option>
-								<option value="#647d86">Artifact/Colorless</option>
-								<option value="#5e5448">Land</option>
-								<option value="#ffffff">True White</option>
-								<option value="#000000">True Black</option>
+								<option value="none">Aucune</option>
+								<option value="default">Image de base</option>
+								<option value="#b79d58" selected="selected">Blanc</option>
+								<option value="#8cacc5">Bleu</option>
+								<option value="#5e5e5e">Noir</option>
+								<option value="#c66d39">Rouge</option>
+								<option value="#598c52">Vert</option>
+								<option value="#cab34d">Multicolore</option>
+								<option value="#647d86">Artefact/Incolore</option>
+								<option value="#5e5448">Terrain</option>
+								<option value="#ffffff">Blanc pur</option>
+								<option value="#000000">Noir pur</option>
 							</select>
 							<select class='input' id='watermark-right' onchange='watermarkRightColor(this.value);'>
-								<option value="none" selected="selected">None</option>
-								<option value="default">Actual Image</option>
-								<option value="#b79d58">White</option>
-								<option value="#8cacc5">Blue</option>
-								<option value="#5e5e5e">Black</option>
-								<option value="#c66d39">Red</option>
-								<option value="#598c52">Green</option>
-								<option value="#cab34d">Gold</option>
-								<option value="#647d86">Artifact/Colorless</option>
-								<option value="#5e5448">Land</option>
-								<option value="#ffffff">True White</option>
-								<option value="#000000">True Black</option>
+								<option value="none" selected="selected">Aucune</option>
+								<option value="default">Image de base</option>
+								<option value="#b79d58">Blanc</option>
+								<option value="#8cacc5">Bleu</option>
+								<option value="#5e5e5e">Noir</option>
+								<option value="#c66d39">Rouge</option>
+								<option value="#598c52">Vert</option>
+								<option value="#cab34d">Multicolore</option>
+								<option value="#647d86">Artefact/Incolore</option>
+								<option value="#5e5448">Terrain</option>
+								<option value="#ffffff">Blanc pur</option>
+								<option value="#000000">Noir pur</option>
 							</select>
 						</div>
-						<h5 class='margin-bottom padding input-description'>Or choose them manually (left, right)</h5>
+						<h5 class='margin-bottom padding input-description'>Ou choisisez les en RGB (gauche, droite)</h5>
 						<div class='input-grid margin-bottom'>
 							<input class='input' type='color' placeholder='Couleur' value='#000000'
 								onchange='watermarkLeftColor(this.value);'>
 							<input class='input' type='color' placeholder='Couleur' value='#000000'
 								onchange='watermarkRightColor(this.value);'>
 						</div>
-						<h5 class='margin-bottom padding input-description'>And enter an opacity</h5>
+						<h5 class='margin-bottom padding input-description'>Et entrez l'opacité</h5>
 						<div class='input-grid margin-bottom'>
 							<input id='watermark-opacity' type='number' class='input' oninput='watermarkEdited();'
 								value=40 step=1 min=0 max=100>
 						</div>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='margin-bottom padding input-description'>Position/scale your watermark (X, Y, Scale)
+						<h5 class='margin-bottom padding input-description'>Positionnez et changez la taille de votre watermark (X, Y, echelle)
 						</h5>
 						<div class='input-grid margin-bottom'>
 							<input id='watermark-x' type='number' class='input' oninput='watermarkEdited();' value=0>
@@ -661,19 +661,17 @@
 								value=100 step=0.1 min=0>
 						</div>
 						<div class='input-grid'>
-							<button class='input' onclick='resetWatermark();'>Reset Watermark</button>
+							<button class='input' onclick='resetWatermark();'>Reset la Watermark</button>
 						</div>
 					</div>
 					<div class='readable-background padding'>
-						<h5 class='padding margin-bottom input-description'>Clears the watermark, making it blank</h5>
-						<button class='input margin-bottom' onclick='uploadWatermark(blank.src);'>Remove
-							Watermark</button>
+						<button class='input margin-bottom' onclick='uploadWatermark(blank.src);'>Supprimer la watermark</button>
 					</div>
 				</div>
 				<div id='creator-menu-bottomInfo' class='hidden'>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='padding margin-bottom input-description'>Enter the card number, rarity, set code,
-							language, and artist's name</h5>
+						<h5 class='padding margin-bottom input-description'>Entrez le numéro de la carte, la rareté, le set code,
+							la langue, et le nom de l'Artiste</h5>
 						<div class='padding input-grid'>
 							<input id='info-number' type='text' class='input' oninput='bottomInfoEdited();'
 								placeholder='Nombre' value=''>
@@ -692,106 +690,95 @@
 						</div>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='input-description margin-bottom'>Enable importing collector information</h5>
-						<label class='checkbox-container input margin-bottom'>Enable imports
+						<h5 class='input-description margin-bottom'>Activer l'importation des informations Collector</h5>
+						<label class='checkbox-container input margin-bottom'>Activer l'importation
 							<input id='enableImportCollectorInfo' type='checkbox'
 								onchange='enableImportCollectorInfo();'>
 							<span class='checkmark'></span>
 						</label>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='input-description padding margin-bottom'>Toggle between star (seen on foils) and dot
-							(seen on regular cards)</h5>
+						<h5 class='input-description padding margin-bottom'>Choisissez entre l'étoile (les foils) et le point (les cartes non-foil)</h5>
 						<div class='padding'>
-							<button class='input padding' onclick='toggleStarDot();'>Toggle Star/Dot</button>
+							<button class='input padding' onclick='toggleStarDot();'>Etoile/Point</button>
 						</div>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='input-description padding margin-bottom'>Save current collector info as default</h5>
+						<h5 class='input-description padding margin-bottom'>Sauvgardez les informations collectors actuelles en tant que base</h5>
 						<div class='padding'>
-							<button class='input padding' onclick='setDefaultCollector();'>Save as Default</button>
+							<button class='input padding' onclick='setDefaultCollector();'>Sauvgardez les informations</button>
 						</div>
-						<h5 class='input-description padding margin-bottom'>Clear your saved default collector info</h5>
+						<h5 class='input-description padding margin-bottom'>Suprimez les informations Sauvgardées</h5>
 						<div class='padding'>
-							<button class='input padding' onclick='removeDefaultCollector();'>Clear Saved
-								Defaults</button>
+							<button class='input padding' onclick='removeDefaultCollector();'>Supprimer</button>
 						</div>
 					</div>
 				</div>
 				<div id='creator-menu-import' class='hidden'>
 					<div class='readable-background margin-bottom padding'>
-						<h5 class='padding margin-bottom input-description'>Import a real card by name</h5>
+						<h5 class='padding margin-bottom input-description'>Importez une carte officiel via son nom</h5>
 						<input id='import-name' class='input margin-bottom' type='text'
 							onchange='fetchScryfallData(this.value, importCard);' placeholder="Entrez le nom d'une carte">
-						<h5 class='padding margin-bottom input-description'>Select a specific card to import</h5>
+						<h5 class='padding margin-bottom input-description'>Selectionnez la carte à importer</h5>
 						<select class='input margin-bottom' id='import-index' onchange='changeCardIndex();'></select>
-						<h5 class='padding input-description'>Select a language for card imports (not all languages will
-							always be available)</h5>
+						<h5 class='padding input-description'>Selectionnez le language de la carte (toutes les cartes ne sont pas disponibles dans toutes les langues</h5>
 						<select class='input' id='import-language'
 							onchange='fetchScryfallData(document.querySelector("#import-name").value, importCard);'>
-							<option value="en">English</option>
-							<option value="es">Spanish</option>
-							<option value="fr">French</option>
-							<option value="de">German</option>
-							<option value="it">Italian</option>
-							<option value="pt">Portuguese</option>
-							<option value="ja">Japanese</option>
-							<option value="ko">Korean</option>
-							<option value="ru">Russian</option>
-							<option value="zhs">Simplified Chinese</option>
-							<option value="zht">Traditional Chinese</option>
+							<option value="en">Anglais</option>
+							<option value="fr">Français</option>
+							<option value="es">Espagnol</option>
+							<option value="de">Allemand</option>
+							<option value="it">Italien</option>
+							<option value="pt">Portugais</option>
+							<option value="ja">Japonais</option>
+							<option value="ko">Coréen</option>
+							<option value="ru">Russe</option>
+							<option value="zhs">Chinois simplifié</option>
+							<option value="zht">Chinois traditionnel</option>
 							<option value="ph">Phyrexian</option>
 						</select>
 					</div>
 					<div class='readable-background margin-bottom padding'>
-						<h5 class='padding margin-bottom input-description'>Save your current card</h5>
-						<button class='input margin-bottom' onclick='saveCard();'>Save Card</button>
-						<h5 class='padding margin-bottom input-description'>Load a saved card</h5>
+						<h5 class='padding margin-bottom input-description'>Sauvegarder votre carte actuelle</h5>
+						<button class='input margin-bottom' onclick='saveCard();'>Sauvegarder</button>
+						<h5 class='padding margin-bottom input-description'>Chargez une carte sauvegardée</h5>
 						<select id='load-card-options' class='input margin-bottom' type='text'
 							onchange='loadCard(this.value);'></select>
-						<h5 class='padding margin-bottom input-description'>Delete selected card</h5>
-						<button class='input' onclick='deleteCard();'>Delete Card</button>
+						<h5 class='padding margin-bottom input-description'>Supprimez une carte selectionnée</h5>
+						<button class='input' onclick='deleteCard();'>Supprimer</button>
 					</div>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='padding margin-bottom input-description'>Download all saved cards</h5>
-						<button class='input margin-bottom' onclick='downloadSavedCards();'>Download All</button>
-						<h5 class='padding margin-bottom input-description'>Upload previously downloaded file of saved
-							cards (downloaded from above)</h5>
+						<h5 class='padding margin-bottom input-description'>Téléchargez toutes les cartes sauvegardées</h5>
+						<button class='input margin-bottom' onclick='downloadSavedCards();'>Tout télécharger</button>
+						<h5 class='padding margin-bottom input-description'>Importer un fichier de carte (téléchargé au préalable)</h5>
 						<input type='file' accept='.cardconjurer,.txt' class='input margin-bottom'
 							oninput='uploadSavedCards(event);'>
-						<h5 class='padding margin-bottom input-description'>Delete ALL saved cards</h5>
-						<button class='input margin-bottom' onclick='deleteSavedCards();'>Delete All</button>
+						<h5 class='padding margin-bottom input-description'>Supprimer toutes les cartes sauvegardées</h5>
+						<button class='input margin-bottom' onclick='deleteSavedCards();'>Tout Supprimer</button>
 					</div>
 					<div class='readable-background padding margin-bottom'>
 						<h5 class='collapsible collapsed padding input-description' onclick='toggleCollapse(event);'>
-							How are my cards saved?
-						</h5>
+							Comment sont sauvegardées mes cartes ?</h5>
 						<div class='padding'>
-							<h5 class='margin-top'>Cards are saved on your computer under your browser's localstorage,
-								which usually has a limit of 5MB and cannot be changed.</h5>
-							<h5 class='margin-top'>Unfortunately, this means that if you save a lot of cards, you could
-								run out of space.</h5>
-							<h5 class='margin-top'>Your localstorage runs out of space especially fast when you upload
-								images directly from your computer, because the image itself has to be saved. However,
-								if possible, uploading images via URL will save massive amounts of space, allowing you
-								to save many more cards.</h5>
-							<h5 class='margin-top'>And if you do run out of space, don't worry! You can download all
-								saved cards then delete all saved cards, freeing up all 5MB of space. And when you'd
-								like to edit the cards you previously downloaded/deleted, you can reupload them via the
-								file upload (under "Upload previously downloaded cards").</h5>
+							<h5 class='margin-top'>Les cartes sont enregistrées sur votre ordinateur sous le stockage local de votre navigateur,
+								qui est généralement limité à 5 Mo et ne peut être modifié.</h5>
+							<h5 class='margin-top'>Malheureusement, cela signifie que si vous enregistrez beaucoup de cartes, vous pourriez
+								manquer d'espace.</h5>
+							<h5 class='margin-top'>Votre stockage local manque d'espace particulièrement vite lorsque vous téléchargez des
+								des images directement depuis votre ordinateur, car l'image elle-même doit être enregistrée. Cependant,
+								si possible, le téléchargement d'images via une URL vous fera gagner énormément d'espace, ce qui vous permettra de sauvegarder beaucoup plus de cartes.
+								de sauvegarder beaucoup plus de cartes.</h5>
+							<h5 class='margin-top'>Et si vous manquez d'espace, ne vous inquiétez pas ! Vous pouvez télécharger toutes les
+								cartes enregistrées puis supprimer toutes les cartes enregistrées, libérant ainsi les 5 Mo d'espace. Et lorsque vous
+								Et lorsque vous souhaitez modifier les cartes que vous avez précédemment téléchargées/supprimées, vous pouvez les télécharger à nouveau via la fonction de téléchargement de fichiers (sous "Télécharger les cartes précédemment enregistrées").
+								téléchargement de fichiers (sous "Télécharger les cartes précédemment téléchargées").</h5>
 						</div>
 					</div>
 				</div>
 				<div id='creator-menu-tutorial' class='hidden'>
-					<!-- <div class='padding readable-background margin-bottom'>
-							<h5 class='padding input-description'>This video is currently outdated, but still reflects the general process for making cards</h5>
-						</div> -->
-					<!-- <div class='padding readable-background margin-bottom'>
-							<h5 class='padding input-description'>The biggest difference is that you must click the "Load Frame Version" button after selecting your frame pack to load necessary details, such as text placement.</h5>
-						</div> -->
 					<div class='padding readable-background margin-bottom'>
-						<h5 class='padding input-description'>Here is a tutorial that covers the basics of using Card
-							Conjurer:</h5>
+						<h5 class='padding input-description'>Voici un tutoriel qui couvre les bases de l'utilisation de Card
+							Conjurer :</h5>
 					</div>
 					<div class='video'>
 						<iframe width="560" height="315" frameborder="0" allow="encrypted-media"
@@ -800,10 +787,9 @@
 				</div>
 			</div>
 			<div class='readable-background padding'>
-				<h3 class='download padding' onclick='downloadCard();'>Download your card</h3>
+				<h3 class='download padding' onclick='downloadCard();'>Telechargez votre carte</h3>
 				<h5 onclick='downloadCard(true);' id='downloadAlt' href='' target='_blank'
-					class='padding download input-description' style='text-align: left;'>Click here for an alternative
-					download</h5>
+					class='padding download input-description' style='text-align: left;'>Cliquez ici pour un telechargement alternatif</h5>
 			</div>
 		</div>
 	</div>
