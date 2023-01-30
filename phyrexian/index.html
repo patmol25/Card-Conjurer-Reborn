@@ -1,5 +1,5 @@
 <!-- START OF CONTENT -->
-    <h2 class='readable-background header-extension title center margin-bottom-large'>Phyrexian Text Generator</h2>
+    <h2 class='readable-background header-extension title center margin-bottom-large'>Générateur de texte phyrexian</h2>
     <style>
         textarea.input.phyrexian-textarea {
             resize: none;
@@ -13,24 +13,24 @@
     <div class="layer margin-bottom-large">
         <div class='input-grid padding margin-bottom readable-background'>
             <div>
-                <h5 class='margin-bottom padding input-description'>Input the text you would like to be "translated"</h5>
+                <h5 class='margin-bottom padding input-description'>Saisissez le texte que vous souhaitez voir "traduit".</h5>
                 <textarea class='input phyrexian-textarea' id='inputText' oninput='generatePhyrexianText()'></textarea>
             </div>
             <div>
-                <h5 class='margin-bottom padding input-description'>Then copy the "translated" text from here</h5>
+                <h5 class='margin-bottom padding input-description'>Ensuite, copiez le texte "traduit" d'ici</h5>
                 <textarea class='input phyrexian-textarea' id='outputText' style='font-family: "phyrexian";' disabled></textarea>
             </div>
         </div>
     </div>
     <div class="readable-background layer margin-bottom-large">
         <h3 class='padding margin-bottom center'>
-            This is not a translator
+            Ce n'est pas un traducteur
         </h3>
         <h4 class='padding margin-bottom'>
-            Phyrexian Text Generator simply takes the number of characters that you input and randomizes them into characters that are compatible with Phyrexian fonts.
+            Phyrexian Text Generator prend simplement le nombre de caractères que vous saisissez et les transforme de manière aléatoire en caractères compatibles avec les polices Phyrexian.
         </h4>
         <h4 class='padding margin-bottom'>
-            To use the generated text in Card Conjurer, simply copy and paste the output text, but remember to add {fontphyrexian} before it so that the correct font is used!
+            Pour utiliser le texte généré dans Card Conjurer, il suffit de copier et coller le texte de sortie, mais n'oubliez pas d'ajouter {fontphyrexian} devant pour que la police correcte soit utilisée !
         </h4>
     </div>
     <script defer src="/phyrexian/phyrexian.js"></script>
