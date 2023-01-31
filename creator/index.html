@@ -66,7 +66,7 @@
 			<input id='frame-editor-hsl-lightness' class='input' type='number' min='-100' max='100' value='0' step='1'>
 		</div>
 		<div>
-			<h5 class='input-description'>Selectionner et retirer des masks</h5>
+			<h5 class='input-description'>Sélectionner et retirer des masks</h5>
 			<select id='frame-editor-masks' class='input margin-bottom'></select>
 			<button onclick='frameElementMaskRemoved();' class='input'>Retirer des masks</button>
 		</div>
@@ -159,7 +159,7 @@
 						</label>
 					</div>
 					<div class='readable-background margin-bottom padding'>
-						<h5 class='margin-bottom padding input-description'>Selectionnez une Frame et un mask et ajoutez
+						<h5 class='margin-bottom padding input-description'>Sélectionnez une Frame et un mask et ajoutez
 							le à votre carte</h5>
 						<div class='split-grid margin-bottom'>
 							<div id='frame-picker' class='frame-picker'></div>
@@ -188,7 +188,7 @@
 								Maj, Contrôle ou Alt enfoncées pour les ajouter respectivement à la moitié droite, à la
 								moitié gauche ou au tiers central.</h5>
 						</div>
-						<h5 id='selectedPreview' class='padding input-description'>(Selectionner: Frame Blanche, Aucun
+						<h5 id='selectedPreview' class='padding input-description'>(Sélectionner: Frame Blanche, Aucun
 							Mask)</h5>
 					</div>
 					<div class='readable-background padding margin-bottom'>
@@ -237,7 +237,7 @@
 				</div>
 				<div id='creator-menu-text' class='hidden'>
 					<div class='readable-background padding margin-bottom'>
-						<h5 class='margin-bottom padding input-description'>Selectionnez une Zone de texte pour l'editer
+						<h5 class='margin-bottom padding input-description'>Sélectionnez une Zone de texte pour l'editer
 						</h5>
 						<div id='text-options' class='input-grid'></div>
 					</div>
@@ -386,7 +386,7 @@
 						<h5 class='margin-bottom padding input-description'>Ou entre le nom d'une carte</h5>
 						<input id='art-name' type='text' placeholder="Entrez le nom d'une carte" class='input margin-bottom'
 							onchange='fetchScryfallData(this.value, artFromScryfall, true);'>
-						<h5 class='padding margin-bottom input-description'>Selectionnez une carte spécifique à charger</h5>
+						<h5 class='padding margin-bottom input-description'>Sélectionnez une carte spécifique à charger</h5>
 						<select class='input margin-bottom' id='art-index' onchange='changeArtIndex();'></select>
 						<h5 class='margin-bottom padding input-description'>Et Créditez l'artiste</h5>
 						<div class='input-grid'>
@@ -552,12 +552,6 @@
 							<option value="/img/watermarks/family-maestros.svg">Maestros</option>
 							<option value="/img/watermarks/family-riveteers.svg">Riveteers</option>
 							<option value="/img/watermarks/family-cabaretti.svg">Cabaretti</option>
-							<option disabled>Faction (Bataille pour Abstraïn)</option>
-							<option value="/img/watermarks/Abstraïn-Adraän.svg">Adraän</option>
-							<option value="/img/watermarks/Abstraïn-Biorn.svg">Biorn</option>
-							<option value="/img/watermarks/Abstraïn-Cotrog.svg">Cotrog</option>
-							<option value="/img/watermarks/Abstraïn-Eftark.svg">Eftark</option>
-							<option value="/img/watermarks/Abstraïn-Vibrion.svg">Vibrion</option>
 							<option disabled>Clans (Tarkir - Ancienne Timeline)</option>
 							<option value="/img/watermarks/clan-abzan.svg">Abzan</option>
 							<option value="/img/watermarks/clan-jeskai.svg">Jeskai</option>
@@ -574,12 +568,6 @@
 							<option value="/img/watermarks/polis-akros.svg">Akros</option>
 							<option value="/img/watermarks/polis-meletis.svg">Meletis</option>
 							<option value="/img/watermarks/polis-setessa.svg">Setessa</option>
-							<option disabled>SteamPunk</option>
-							<option value="/img/watermarks/Steampunk-blanc.svg">Blanc</option>
-							<option value="/img/watermarks/Steampunk-bleu.svg">Bleu</option>
-							<option value="/img/watermarks/Steampunk-noir.svg">Noir</option>
-							<option value="/img/watermarks/Steampunk-rouge.svg">Rouge</option>
-							<option value="/img/watermarks/Steampunk-vert.svg">Vert</option>
 							<option disabled>Factions de Unstable (Bablovia)</option>
 							<option value="/img/watermarks/faction-order-of-the-widget.svg">Order of the Widget</option>
 							<option value="/img/watermarks/faction-agents-of-sneak.svg">Agents of S.N.E.A.K.</option>
@@ -719,9 +707,9 @@
 						<h5 class='padding margin-bottom input-description'>Importez une carte officiel via son nom</h5>
 						<input id='import-name' class='input margin-bottom' type='text'
 							onchange='fetchScryfallData(this.value, importCard);' placeholder="Entrez le nom d'une carte">
-						<h5 class='padding margin-bottom input-description'>Selectionnez la carte à importer</h5>
+						<h5 class='padding margin-bottom input-description'>Sélectionnez la carte à importer</h5>
 						<select class='input margin-bottom' id='import-index' onchange='changeCardIndex();'></select>
-						<h5 class='padding input-description'>Selectionnez le language de la carte (toutes les cartes ne sont pas disponibles dans toutes les langues</h5>
+						<h5 class='padding input-description'>Sélectionnez le language de la carte (toutes les cartes ne sont pas disponibles dans toutes les langues</h5>
 						<select class='input' id='import-language'
 							onchange='fetchScryfallData(document.querySelector("#import-name").value, importCard);'>
 							<option value="en">Anglais</option>
