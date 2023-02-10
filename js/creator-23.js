@@ -174,7 +174,8 @@ function getShortName() {
 	if (card.text == undefined || card.text.title == undefined) {
 		return 'unnamed';
 	}
-	var imageName = card.text.title.text || 'unnamed';
+	var short = card.text.title.text.split(",");
+	var imageName =  short[0] || 'unnamed';
 	if (card.text.nickname) {
 		imageName += ' (' + card.text.nickname.text + ')';
 	}
