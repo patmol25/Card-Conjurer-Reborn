@@ -170,6 +170,17 @@ function getCardName() {
 	}
 	return imageName.replace(/\{[^}]+\}/g, '');
 }
+function getShortName() {
+	if (card.text == undefined || card.text.title == undefined) {
+		return 'unnamed';
+	}
+	var imageName = card.text.title.text || 'unnamed';
+	if (card.text.nickname) {
+		imageName += ' (' + card.text.nickname.text + ')';
+	}
+	return imageName.replace(/\{[^}]+\}/g, '');
+}
+
 //UI
 function toggleCreatorTabs(event, target) {
 	Array.from(document.querySelector('#creator-menu-sections').children).forEach(element => element.classList.add('hidden'));
@@ -891,8 +902,80 @@ function writeText(textObject, targetContext) {
 		rawText = params.get('copyright'); //so people using CC for custom card games without WotC's IP can customize their copyright info
 		if (rawText == 'none') { rawText = ''; }
 	}
+	if (rawText.toLowerCase().includes('{meurt}')) {
+		rawText = rawText.replace(/{meurt}/ig, "Quand {cardname} meurt");
+	}
+	if (rawText.toLowerCase().includes('{.}')) {
+		rawText = rawText.replace(/{.}/ig, "• {indent}");
+	}
 	if (rawText.toLowerCase().includes('{cardname}')) {
 		rawText = rawText.replace(/{cardname}/ig, getCardName());
+	}
+	if (rawText.toLowerCase().includes('{shortname}')) {
+		rawText = rawText.replace(/{shortname}/ig, getShortName());
+	}
+	if (rawText.toLowerCase().includes('{etb}')) {
+		rawText = rawText.replace(/{etb}/ig, 'arrive sur le champ de bataille');
+	}
+	if (rawText.toLowerCase().includes('{etbt}')) {
+		rawText = rawText.replace(/{etbt}/ig, 'arrive sur le champ de bataille engagé');
+	}
+	if (rawText.toLowerCase().includes('{sup}')) {
+		rawText = rawText.replace(/{sup}/ig, 'En tant que coût supplémentaire pour lancer ce sort,');
+	}
+	if (rawText.toLowerCase().includes('{tuto}')) {
+		rawText = rawText.replace(/{tuto}/ig, "Cherchez une carte dans votre bibliothèque, mettez cette carte dans votre main, puis mélangez.");
+	}
+	if (rawText.toLowerCase().includes('{fin}')) {
+		rawText = rawText.replace(/{fin}/ig, "jusqu'à la fin du tour");
+	}
+	if (rawText.toLowerCase().includes('{tw}')) {
+		rawText = rawText.replace(/{tw}/ig, "{T} : Ajoutez {w}.");
+	}
+	if (rawText.toLowerCase().includes('{tu}')) {
+		rawText = rawText.replace(/{tu}/ig, "{T} : Ajoutez {u}.");
+	}
+	if (rawText.toLowerCase().includes('{tb}')) {
+		rawText = rawText.replace(/{tb}/ig, "{T} : Ajoutez {b}.");
+	}
+	if (rawText.toLowerCase().includes('{tr}')) {
+		rawText = rawText.replace(/{tr}/ig, "{T} : Ajoutez {r}.");
+	}
+	if (rawText.toLowerCase().includes('{tg}')) {
+		rawText = rawText.replace(/{tg}/ig, "{T} : Ajoutez {g}.");
+	}
+	if (rawText.toLowerCase().includes('{add}')) {
+		rawText = rawText.replace(/{add}/ig, "{T} : Ajoutez un mana de la couleur de votre choix.");
+	}
+	if (rawText.toLowerCase().includes('{twu}')) {
+		rawText = rawText.replace(/{twu}/ig, "{T} : Ajoutez {W} ou {U}.");
+	}
+	if (rawText.toLowerCase().includes('{tub}')) {
+		rawText = rawText.replace(/{tub}/ig, "{T} : Ajoutez {U} ou {B}.");
+	}
+	if (rawText.toLowerCase().includes('{tbr}')) {
+		rawText = rawText.replace(/{tbr}/ig, "{T} : Ajoutez {B} ou {R}.");
+	}
+	if (rawText.toLowerCase().includes('{trg}')) {
+		rawText = rawText.replace(/{trg}/ig, "{T} : Ajoutez {R} ou {G}.");
+	}
+	if (rawText.toLowerCase().includes('{tgw}')) {
+		rawText = rawText.replace(/{tgw}/ig, "{T} : Ajoutez {G} ou {W}.");
+	}
+	if (rawText.toLowerCase().includes('{twb}')) {
+		rawText = rawText.replace(/{twb}/ig, "{T} : Ajoutez {W} ou {B}.");
+	}
+	if (rawText.toLowerCase().includes('{tur}')) {
+		rawText = rawText.replace(/{tur}/ig, "{T} : Ajoutez {U} ou {R}.");
+	}
+	if (rawText.toLowerCase().includes('{tbg}')) {
+		rawText = rawText.replace(/{tbg}/ig, "{T} : Ajoutez {B} ou {G}.");
+	}
+	if (rawText.toLowerCase().includes('{trw}')) {
+		rawText = rawText.replace(/{trw}/ig, "{T} : Ajoutez {R} ou {W}.");
+	}
+	if (rawText.toLowerCase().includes('{tgu}')) {
+		rawText = rawText.replace(/{tgu}/ig, "{T} : Ajoutez {G} ou {U}.");
 	}
 	if (document.querySelector('#info-artist').value == '') {
 		rawText = rawText.replace('\uFFEE{elemidinfo-artist}', '');

@@ -4,11 +4,11 @@ function generatePhyrexianText() {
     var inputText = document.getElementById('inputText').value;
     var outputText = '';
     var paragraphs = inputText.split('\n');
-    for (var i = 0; i < paragraphs.length; i ++) {
+    for (var i = 0; i < paragraphs.length; i++) {
         var sentences = paragraphs[i].split('. ');
-        for (var j = 0; j < sentences.length; j ++) {
+        for (var j = 0; j < sentences.length; j++) {
             outputText += '|';
-            for (var k = 0; k < sentences[j].length - 2; k ++) {
+            for (var k = 0; k < sentences[j].length - 2; k++) {
                 outputText += randomCharacters[Math.floor(Math.random() * randomCharacters.length)];
             }
             outputText += '. ';
