@@ -37,7 +37,8 @@ art.onload = artEdited;
 setSymbol = new Image(); setSymbol.crossOrigin = 'anonymous'; setSymbol.src = blank.src;
 setSymbol.onerror = function () {
 	if (this.src.includes('gatherer.wizards.com')) {
-		notify('<a target="_blank" href="http' + this.src.split('http')[2] + '">Loading the set symbol from Gatherer failed. Please check this link to see if it exists. If it does, it may be necessary to manually download and upload the image.</a>', 5);
+		//EN:	notify('<a target="_blank" href="http' + this.src.split('http')[2] + '">Loading the set symbol from Gatherer failed. Please check this link to see if it exists. If it does, it may be necessary to manually download and upload the image.</a>', 5);
+		/*FR:*/	notify('<a target="_blank" href="http' + this.src.split('http')[2] + '">Le chargement du lot de symbole depuis Gatherer a échoué. Veuillez tester ce lien pour voir s\'il existe. Si c\'est le cas, procédez manuellement au téléchargement puis au chargement de l\'image.</a>', 5);
 	}
 	if (!this.src.includes('/img/blank.png')) { this.src = fixUri('/img/blank.png'); }
 }
@@ -1894,7 +1895,8 @@ function drawCard() {
 //DOWNLOADING
 function downloadCard(alt = false) {
 	if (card.infoArtist.replace(/ /g, '') == '' && !card.artSource.includes('/img/blank.png') && !card.artZoom == 0) {
-		notify('You must credit an artist before downloading!', 5);
+		//EN:	notify('You must credit an artist before downloading!', 5);
+		/*FR:*/ notify('🚧 Vous devez renseigner un artiste avant de télécharger !', 5);
 	} else {
 		// Prep file information
 		const imageDataURL = cardCanvas.toDataURL('image/png');
@@ -2086,7 +2088,8 @@ function saveCard(saveFromFile) {
 			loadAvailableCards(cardKeys);
 		}
 	} catch (error) {
-		notify('You have exceeded your 5MB of local storage, and your card has failed to save. If you would like to continue saving cards, please download all saved cards, then delete all saved cards to free up space.<br><br>Local storage is most often exceeded by uploading large images directly from your computer. If possible/convenient, using a URL avoids the need to save these large images.<br><br>Apologies for the inconvenience.');
+		//EN:	notify('You have exceeded your 5MB of local storage, and your card has failed to save. If you would like to continue saving cards, please download all saved cards, then delete all saved cards to free up space.<br><br>Local storage is most often exceeded by uploading large images directly from your computer. If possible/convenient, using a URL avoids the need to save these large images.<br><br>Apologies for the inconvenience.');
+		/*FR:*/	notify('Vous avez dépassé les 5 Mo de stockage local permis par application dans le navigateur et votre carte n’a pas pu être enregistrée. Si vous souhaitez continuer à enregistrer de nouvelles des cartes, veuillez libérer de la place en supprimant une ou plusieurs cartes. Vous pouvez aussi exporter toutes les cartes enregistrées dans un fichier via le bouton [Tout télécharger].<br><br>Le stockage local est le plus souvent dépassé par le téléchargement d’images volumineuses directement depuis votre ordinateur. Privilégiez l’utilisation d’une URL, cela évite d’avoir à mémoriser ces images volumineuses dans la sauvegarde.');
 	}
 }
 async function loadCard(selectedCardKey) {
@@ -2145,7 +2148,8 @@ async function loadCard(selectedCardKey) {
 			watermarkEdited();
 		}
 	} else {
-		notify(selectedCardKey + ' failed to load.', 5)
+		//EN: 	notify(selectedCardKey + ' failed to load.', 5)
+		/*FR:*/	notify(selectedCardKey + ' impossible à charger.', 5)
 	}
 }
 function deleteCard() {
@@ -2295,7 +2299,8 @@ async function imageLocal(event, destination, otherParams) {
 function loadScript(scriptPath) {
 	var script = document.createElement('script');
 	script.setAttribute('type', 'text/javascript');
-	script.onerror = function () { notify('A script failed to load, likely due to an update. Please reload your page. Sorry for the inconvenience.'); }
+	//EN: 	script.onerror = function () { notify('A script failed to load, likely due to an update. Please reload your page. Sorry for the inconvenience.'); }
+	/*FR:*/	script.onerror = function () { notify('Le chargement d’un script a échoué, probablement en raison d’une mise à jour. Veuillez recharger votre page.'); }
 	script.setAttribute('src', scriptPath);
 	if (typeof script != 'undefined') {
 		document.querySelectorAll('head')[0].appendChild(script);
@@ -2376,7 +2381,8 @@ function fetchScryfallData(cardName, callback = console.log, searchUniqueArt = '
 			});
 			callback(responseCards);
 		} else if (this.readyState == 4 && this.status == 404 && !searchUniqueArt && cardName != '') {
-			notify(`No cards found for "${cardName}" in ${cardLanguageSelect.options[cardLanguageSelect.selectedIndex].text}.`, 5);
+			//EN:	notify(`No cards found for "${cardName}" in ${cardLanguageSelect.options[cardLanguageSelect.selectedIndex].text}.`, 5);
+			/*FR:*/	notify(`Aucune carte n’a été trouvée pour "${cardName}" en ${cardLanguageSelect.options[cardLanguageSelect.selectedIndex].text}.`, 5);
 		}
 	}
 	cardLanguageSelect = document.querySelector('#import-language');

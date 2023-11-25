@@ -479,7 +479,14 @@ a.underline {
 	display: grid;
 	grid-template-columns: auto 2rem;
 	transition: 0.5s;
+	animation: notification_blinking 200ms infinite;	/* GowaP - Attirer l'attention sur la notification */
 }
+
+/*GowaP - mise en évidence acrue de la notification par un clignotement rapide */
+@keyframes notification_blinking {
+	0%		{	background-color:unset;						}
+	100%	{	background-color: var(--input-background);	}
+  }
 
 .notification>h3 {
 	text-align: center;
