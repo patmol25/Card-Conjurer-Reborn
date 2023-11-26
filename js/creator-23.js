@@ -37,9 +37,9 @@ var card = { width: 1500, height: 2100, marginX: 0, marginY: 0, frames: [],
 			watermarkSource: fixUri('/img/blank.png'), watermarkX: 0, watermarkY: 0, watermarkZoom: 1, watermarkLeft: 'none', watermarkRight: 'none', watermarkOpacity: 0.4, 
 			version: '', manaSymbols: [] };
 //core images/masks
-const black = new Image(); black.crossOrigin = 'anonymous'; black.src = fixUri('/img/black.png');
-const blank = new Image(); blank.crossOrigin = 'anonymous'; blank.src = fixUri('/img/blank.png');
-const right = new Image(); right.crossOrigin = 'anonymous'; right.src = fixUri('/img/frames/maskRightHalf.png');
+const black  = new Image(); black.crossOrigin  = 'anonymous'; black.src  = fixUri('/img/black.png');
+const blank  = new Image(); blank.crossOrigin  = 'anonymous'; blank.src  = fixUri('/img/blank.png');
+const right  = new Image(); right.crossOrigin  = 'anonymous'; right.src  = fixUri('/img/frames/maskRightHalf.png');
 const middle = new Image(); middle.crossOrigin = 'anonymous'; middle.src = fixUri('/img/frames/maskMiddleThird.png');
 const corner = new Image(); corner.crossOrigin = 'anonymous'; corner.src = fixUri('/img/frames/cornerCutout.png');
 //art
@@ -136,14 +136,14 @@ function sizeCanvas(name, width = Math.round(card.width * (1 + 2 * card.marginX)
 	}
 	window[name + 'Canvas'].width = width;
 	window[name + 'Canvas'].height = height;
-	if (name == 'line') { //force true to view all canvases - must restore to name == 'line' for proper kerning adjustments
+//	if (name == 'line') { //force true to view all canvases - must restore to name == 'line' for proper kerning adjustments
 		window[name + 'Canvas'].style = 'width: 20rem; height: 28rem; border: 1px solid red;';
 		const label = document.createElement('div');
 		label.innerHTML = name + '<br>If you can see this and don\'t want to, please clear your cache.';
 		label.appendChild(window[name + 'Canvas']);
 		label.classList = 'fake-hidden'; //Comment this out to view canvases
 		document.body.appendChild(label);
-	}
+//	}
 }
 //create main canvases
 sizeCanvas('card');
@@ -1821,6 +1821,13 @@ async function bottomInfoEdited() {
 	}
 	drawCard();
 }
+
+// GowaP - La fonction "funcardEdited" était manquante dans le sources EN.
+function funcardEdited(value) {
+	card.infoFuncardeur = document.querySelector('#info-funcardeur').value;
+	bottomInfoEdited();
+}
+
 function artistEdited(value) {
 	document.querySelector('#art-artist').value = value;
 	document.querySelector('#info-artist').value = value;
