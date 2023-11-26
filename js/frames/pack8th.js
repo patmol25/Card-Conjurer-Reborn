@@ -1,6 +1,8 @@
 //Create objects for common properties across available frames
-var masks = [{src:'/img/frames/8th/pinline.png', name:'Pinline'}, {src:'/img/frames/8th/title.png', name:'Title'}, {src:'/img/frames/8th/type.png', name:'Type'}, {src:'/img/frames/8th/rules.png', name:'Rules'}, {src:'/img/frames/8th/frame.png', name:'Frame'}];
-var masks2 = [{src:'/img/frames/8th/border.svg', name:'Border'}];
+//EN:	var masks = [{src:'/img/frames/8th/pinline.png', name:'Pinline'}, {src:'/img/frames/8th/title.png', name:'Title'}, {src:'/img/frames/8th/type.png', name:'Type'}, {src:'/img/frames/8th/rules.png', name:'Rules'}, {src:'/img/frames/8th/frame.png', name:'Frame'}];
+/*FR:*/	var masks = [{src:'/img/frames/8th/pinline.png', name:'Ligne de Contour'}, {src:'/img/frames/8th/title.png', name:'Titre'}, {src:'/img/frames/8th/type.png', name:'Type'}, {src:'/img/frames/8th/rules.png', name:'Règles'}, {src:'/img/frames/8th/frame.png', name:'Trame'}];
+//EN:	var masks2 = [{src:'/img/frames/8th/border.svg', name:'Border'}];
+/*FR:*/	var masks2 = [{src:'/img/frames/8th/border.svg', name:'Masque de bordure'}];
 var bounds = {x:0.7227, y:0.8796, width:0.2147, height:0.0839};
 //defines available frames
 availableFrames = [
@@ -31,6 +33,34 @@ availableFrames = [
 	{name:'Silver Border', src:'/img/frames/silver.png', masks:masks2, noDefaultMask:true},
 	{name:'Gold Border', src:'/img/frames/gold.png', masks:masks2, noDefaultMask:true}
 ];
+availableFrames = [
+	{name:'Trame Blanche', src:'/img/frames/8th/w.png', masks:masks},
+	{name:'Trame Bleu', src:'/img/frames/8th/u.png', masks:masks},
+	{name:'Trame Noire', src:'/img/frames/8th/b.png', masks:masks},
+	{name:'Trame Rouge', src:'/img/frames/8th/r.png', masks:masks},
+	{name:'Trame Verte', src:'/img/frames/8th/g.png', masks:masks},
+	{name:'Trame Multicolore', src:'/img/frames/8th/m.png', masks:masks},
+	{name:'Trame Artefact', src:'/img/frames/8th/a.png', masks:masks},
+	{name:'Trame incolore', src:'/img/frames/8th/c.png', masks:masks},
+	{name:'Trame Terre', src:'/img/frames/8th/l.png', masks:masks},
+	{name:'Trame Terre Blanche', src:'/img/frames/8th/wl.png', masks:masks},
+	{name:'Trame Terre Bleu', src:'/img/frames/8th/ul.png', masks:masks},
+	{name:'Trame Terre Noire', src:'/img/frames/8th/bl.png', masks:masks},
+	{name:'Trame Terre Rouge', src:'/img/frames/8th/rl.png', masks:masks},
+	{name:'Trame Terre Verte', src:'/img/frames/8th/gl.png', masks:masks},
+	{name:'Trame Terre Multicolore', src:'/img/frames/8th/ml.png', masks:masks},
+	{name:'Force/Endurance', src:'/img/frames/8th/pt/w.png', bounds:bounds},
+	{name:'Force/Endurance Bleu', src:'/img/frames/8th/pt/u.png', bounds:bounds},
+	{name:'Force/Endurance Noire', src:'/img/frames/8th/pt/b.png', bounds:bounds},
+	{name:'Force/Endurance Rouge', src:'/img/frames/8th/pt/r.png', bounds:bounds},
+	{name:'Force/Endurance Verte', src:'/img/frames/8th/pt/g.png', bounds:bounds},
+	{name:'Force/Endurance Multicolore', src:'/img/frames/8th/pt/m.png', bounds:bounds},
+	{name:'Force/Endurance Artefact', src:'/img/frames/8th/pt/a.png', bounds:bounds},
+	{name:'Force/Endurance Incolore ', src:'/img/frames/8th/pt/l.png', bounds:bounds},
+	{name:'Bordure Blanche', src:'/img/frames/white.png', masks:masks2, noDefaultMask:true},
+	{name:'Bordure Argent', src:'/img/frames/silver.png', masks:masks2, noDefaultMask:true},
+	{name:'Bordure Or', src:'/img/frames/gold.png', masks:masks2, noDefaultMask:true}
+];
 //disables/enables the "Load Frame Version" button
 document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
@@ -50,17 +80,22 @@ document.querySelector('#loadFrameVersion').onclick = async function() {
 	resetWatermark();
 	//text
 	loadTextOptions({
-		mana: {name:'Mana Cost', text:'', y:0.0705, width:0.9147, height:65/2100, oneLine:true, size:65/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0},
-		title: {name:'Title', text:'', x:0.09, y:0.0629, width:0.824, height:0.0429, oneLine:true, font:'matrixb', size:0.0429},
-		type: {name:'Type', text:'', x:0.1, y:0.572, width:0.8, height:0.0358, oneLine:true, font:'matrixb', size:0.0358},
-		rules: {name:'Rules Text', text:'', x:0.1, y:0.6277, width:0.8, height:0.2691, size:0.0362},
-		pt: {name:'Power/Toughness', text:'', x:0.7667, y:0.8953, width:0.1367, height:0.0443, size:0.0443, font:'matrixbsc', oneLine:true, align:'center'}
+//EN:	mana: {name:'Mana Cost', text:'', y:0.0705, width:0.9147, height:65/2100, oneLine:true, size:65/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0},
+//EN:	title: {name:'Title', text:'', x:0.09, y:0.0629, width:0.824, height:0.0429, oneLine:true, font:'matrixb', size:0.0429},
+//EN:	type: {name:'Type', text:'', x:0.1, y:0.572, width:0.8, height:0.0358, oneLine:true, font:'matrixb', size:0.0358},
+//EN:	rules: {name:'Rules Text', text:'', x:0.1, y:0.6277, width:0.8, height:0.2691, size:0.0362},
+//EN:	pt: {name:'Power/Toughness', text:'', x:0.7667, y:0.8953, width:0.1367, height:0.0443, size:0.0443, font:'matrixbsc', oneLine:true, align:'center'}
+/*FR:*/	mana: {name:'Coût en mana',    text:'', y:0.0705, width:0.9147, height:65/2100, oneLine:true, size:65/1638, align:'right', shadowX:-0.001, shadowY:0.0029, manaCost:true, manaSpacing:0},
+/*FR:*/	title:{name:'Titre', 		   text:'', x:0.09, y:0.0629, width:0.824, height:0.0429, oneLine:true, font:'matrixb', size:0.0429},
+/*FR:*/	type: {name:'Type', 		   text:'', x:0.1, y:0.572, width:0.8, height:0.0358, oneLine:true, font:'matrixb', size:0.0358},
+/*FR:*/	rules:{name:'Règles', 		   text:'', x:0.1, y:0.6277, width:0.8, height:0.2691, size:0.0362},
+/*FR:*/	pt:   {name:'Force/Endurance', text:'', x:0.7667, y:0.8953, width:0.1367, height:0.0443, size:0.0443, font:'matrixbsc', oneLine:true, align:'center'}
 	});
 	//bottom info
 	loadBottomInfo({
-		top: {text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}\uFFEE {elemidinfo-artist}', x:0.094, y:1904/2100, width:0.8107, height:0.0248, oneLine:true, font:'matrixb', size:0.0248, color:'black', shadowX:0.0007, shadowY:0.0005},
-		wizards: {name:'wizards', text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}\u2122 & \u00a9 1993-{elemidinfo-year} Wizards of the Coast, Inc. {elemidinfo-number}', x:0.094, y:1958/2100, width:0.8107, height:0.0153, oneLine:true, font:'mplantin', size:0.0153, color:'black', shadowX:0.0007, shadowY:0.0005},
-		bottom: {text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}NOT FOR SALE   CardConjurer.com', x:0.094, y:1994/2100, width:0.8107, height:0.0134, oneLine:true, font:'mplantin', size:0.0134, color:'black', shadowX:0.0007, shadowY:0.0005}
+		top: 	{				 text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}\uFFEE {elemidinfo-artist}', x:0.094, y:1904/2100, width:0.8107, height:0.0248, oneLine:true, font:'matrixb', size:0.0248, color:'black', shadowX:0.0007, shadowY:0.0005},
+		wizards:{name:'wizards', text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}\u2122 & \u00a9 1993-{elemidinfo-year} Wizards of the Coast, Inc. {elemidinfo-number}', x:0.094, y:1958/2100, width:0.8107, height:0.0153, oneLine:true, font:'mplantin', size:0.0153, color:'black', shadowX:0.0007, shadowY:0.0005},
+		bottom: {				 text:'{conditionalcolor:Black_Frame,Land_Frame,Colorless_Frame:white}NOT FOR SALE   CardConjurer.com', x:0.094, y:1994/2100, width:0.8107, height:0.0134, oneLine:true, font:'mplantin', size:0.0134, color:'black', shadowX:0.0007, shadowY:0.0005}
 	});
 }
 //loads available frames

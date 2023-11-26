@@ -1,3 +1,11 @@
+// GowaP : traduction
+St_maskOptionNone = 'None Selected';		// valeur utilisée plusieurs fois dans des tests
+St_maskOptionNone = '- Aucune sélection -';
+St_unnamed ='unnamed';						// valeur utilisée plusieurs fois dans des tests
+St_unnamed ='SansNom';
+
+
+
 //URL Params
 var params = new URLSearchParams(window.location.search);
 const debugging = params.get('debug') != null;
@@ -6,7 +14,8 @@ if (debugging) {
 	document.querySelectorAll('.debugging').forEach(element => element.classList.remove('hidden'));
 }
 
-//To save the server from being overloaded? Maybe?
+//EN:	To save the server from being overloaded? Maybe?
+//FR:	Pour éviter la surcharge du serveur ? Peut-être?
 function fixUri(input) {
 	/* --- DISABLED FOR LOCAL VERSION --
 	var prefix = 'https://card-conjurer.storage.googleapis.com';//'https://raw.githubusercontent.com/ImKyle4815/cardconjurer/remake';
@@ -22,7 +31,11 @@ function setImageUrl(image, source) {
 	image.src = fixUri(source);
 }
 //card object
-var card = { width: 1500, height: 2100, marginX: 0, marginY: 0, frames: [], artSource: fixUri('/img/blank.png'), artX: 0, artY: 0, artZoom: 1, artRotate: 0, setSymbolSource: fixUri('/img/blank.png'), setSymbolX: 0, setSymbolY: 0, setSymbolZoom: 1, watermarkSource: fixUri('/img/blank.png'), watermarkX: 0, watermarkY: 0, watermarkZoom: 1, watermarkLeft: 'none', watermarkRight: 'none', watermarkOpacity: 0.4, version: '', manaSymbols: [] };
+var card = { width: 1500, height: 2100, marginX: 0, marginY: 0, frames: [], 
+			artSource: fixUri('/img/blank.png'), artX: 0, artY: 0, artZoom: 1, artRotate: 0, 
+			setSymbolSource: fixUri('/img/blank.png'), setSymbolX: 0, setSymbolY: 0, setSymbolZoom: 1, 
+			watermarkSource: fixUri('/img/blank.png'), watermarkX: 0, watermarkY: 0, watermarkZoom: 1, watermarkLeft: 'none', watermarkRight: 'none', watermarkOpacity: 0.4, 
+			version: '', manaSymbols: [] };
 //core images/masks
 const black = new Image(); black.crossOrigin = 'anonymous'; black.src = fixUri('/img/black.png');
 const blank = new Image(); blank.crossOrigin = 'anonymous'; blank.src = fixUri('/img/blank.png');
@@ -163,20 +176,30 @@ function getElementIndex(element) {
 }
 function getCardName() {
 	if (card.text == undefined || card.text.title == undefined) {
-		return 'unnamed';
+		return St_unnamed;
 	}
-	var imageName = card.text.title.text || 'unnamed';
+	var imageName = card.text.title.text || St_unnamed;
 	if (card.text.nickname) {
 		imageName += ' (' + card.text.nickname.text + ')';
+	}
+
+	// GowaP : Préfixe le nom du fichier avec : collection, numéro et langue de la carte
+	// GowaP : ajoutez dans l'URL du site "PrefixNameFile" pour activer cette fonctionnalitée
+	//			par exemple : http://localhost:8081/?PrefixNameFile
+	// GowaP : prévoir l'ajout d'un CheckBox pour proposer la fonctionnelité à tous.
+	if (params.get('PrefixNameFile') != null) {
+		if ((card.infoNumber || '').length>2 &&	(card.infoSet || '').length>2 && (card.infoLanguage || '').length>1 ){				
+			imageName = (card.infoSet.substr(0,3) +'-' + card.infoNumber.replace(/(\w+)\W(\w+)/, "$1").substr(0,3) +'-'+ card.infoLanguage.substr(0,2)).toUpperCase() + ' - ' + imageName
+		}
 	}
 	return imageName.replace(/\{[^}]+\}/g, '');
 }
 function getShortName() {
 	if (card.text == undefined || card.text.title == undefined) {
-		return 'unnamed';
+		return St_unnamed;
 	}
 	var short = card.text.title.text.split(",");
-	var imageName =  short[0] || 'unnamed';
+	var imageName =  short[0] || St_unnamed;
 	if (card.text.nickname) {
 		imageName += ' (' + card.text.nickname.text + ')';
 	}
@@ -659,7 +682,7 @@ function frameElementClicked(event) {
 		selectMaskElement.innerHTML = null;
 		const maskOptionNone = document.createElement('option');
 		maskOptionNone.disabled = true;
-		maskOptionNone.innerHTML = 'None Selected';
+		maskOptionNone.innerHTML = St_maskOptionNone;
 		selectMaskElement.appendChild(maskOptionNone);
 		selectedFrame.masks.forEach(mask => {
 			const maskOption = document.createElement('option');
@@ -672,7 +695,7 @@ function frameElementClicked(event) {
 function frameElementMaskRemoved() {
 	const selectElement = document.querySelector('#frame-editor-masks');
 	const selectedOption = selectElement.value;
-	if (selectedOption != 'None Selected') {
+	if (selectedOption != St_maskOptionNone) {
 		selectElement.remove(selectElement.selectedIndex);
 		selectElement.selectedIndex = 0;
 		selectedFrame.masks.forEach(mask => {
@@ -2040,7 +2063,7 @@ function loadAvailableCards(cardKeys = JSON.parse(localStorage.getItem('cardKeys
 		cardKeys.sort();
 		localStorage.setItem('cardKeys', JSON.stringify(cardKeys));
 	}
-	document.querySelector('#load-card-options').innerHTML = '<option selected="selected" disabled>None selected</option>';
+	document.querySelector('#load-card-options').innerHTML = '<option selected="selected" disabled>'+St_maskOptionNone+'</option>';
 	cardKeys.forEach(item => {
 		var cardKeyOption = document.createElement('option');
 		cardKeyOption.innerHTML = item;
@@ -2056,12 +2079,14 @@ function saveCard(saveFromFile) {
 		cardKey = getCardName();
 	}
 	if (!saveFromFile) {
-		cardKey = prompt('Enter the name you would like to save your card under:', cardKey);
+//EN:		cardKey = prompt('Enter the name you would like to save your card under:', cardKey);
+/*FR:*/		cardKey = prompt('Entrez le nom sous lequel vous souhaitez enregistrer votre carte :', cardKey);
 		if (!cardKey) { return null; }
 	}
 	cardKey = cardKey.trim();
 	if (cardKeys.includes(cardKey)) {
-		if (!confirm('Would you like to overwrite your card previously saved as "' + cardKey + '"?\n(Clicking "cancel" will affix a version number)')) {
+//EN:		if (!confirm('Would you like to overwrite your card previously saved as "' + cardKey + '"?\n(Clicking "cancel" will affix a version number)')) {
+/*FR:*/		if (!confirm('Souhaitez-vous écraser votre carte précédemment enregistrée sous le nom "' + cardKey + '"?\n(Cliquez sur « annuler » pour apposer un numéro de version)')) {
 			var originalCardKey = cardKey;
 			var cardKeyNumber = 1;
 			while (cardKeys.includes(cardKey)) {
