@@ -914,17 +914,19 @@ function writeText(textObject, targetContext) {
 	var textOneLine = textObject.oneLine || false;
 	var textManaCost = textObject.manaCost || false;
 	var textManaSpacing = scaleWidth(textObject.manaSpacing) || 0;
-	//Buffers the canvases accordingly
+	//EN:Buffers the canvases accordingly		//FR: Tamponne les canevas en conséquence
 	var canvasMargin = 300;
 	paragraphCanvas.width = textWidth + 2 * canvasMargin;
 	paragraphCanvas.height = textHeight + 2 * canvasMargin;
 	lineCanvas.width = textWidth + 2 * canvasMargin;
 	lineCanvas.height = startingTextSize + 2 * canvasMargin;
-	//Preps the text string
+	//EN:Preps the text string					//FR: Prépare la chaîne de texte
 	var splitString = '6GJt7eL8';
 	var rawText = textObject.text
 	if ((textObject.name == 'wizards' || textObject.name == 'copyright') && params.get('copyright') != null && (params.get('copyright') != '' || card.margins)) {
-		rawText = params.get('copyright'); //so people using CC for custom card games without WotC's IP can customize their copyright info
+		rawText = params.get('copyright'); 
+			//EN: so people using CC for custom card games without WotC's IP can customize their copyright info
+			//FR: L'utilisation de CC pour personnaliser un carte sans droit WotC peuvent personnaliser leur signature de droit
 		if (rawText == 'none') { rawText = ''; }
 	}
 	if (rawText.toLowerCase().includes('{meurt}')) {
@@ -1838,8 +1840,8 @@ function toggleStarDot() {
 		var text = card.bottomInfo[key].text
 		if (text.includes('*')) {
 			card.bottomInfo[key].text = text.replace('*', ' \u2022 ');
-		} else {
-			card.bottomInfo[key].text = text.replace(' \u2022 ', '*');
+		} else {	// Remplace ' • ' and '·' ; le 2e vient du téléchargement internet d'une carte 
+			card.bottomInfo[key].text = text.replace(' \u2022 ', '*').replace('\u00B7', '*');
 		}
 	}
 	defaultCollector.starDot = !defaultCollector.starDot;
@@ -2065,7 +2067,11 @@ function changeCardIndex() {
 	}
 }
 function loadAvailableCards(cardKeys = JSON.parse(localStorage.getItem('cardKeys'))) {
-	if (!cardKeys) {
+		// 'cardKeys' contient la liste des noms des cartes. Ce nom est directement injecté dans l'objet 'INPUT LIST'
+		// Chacun de ces noms sont présumé existant dans le "localStorage". Il n'y a pas de vérification ici.
+		// La vérification est faite à la sélection de la carte indiquant une erreur de chargement.
+		// ### Amélioration à prévoir : griser la selection de cette carte (disabled) si elle n'existe pas.
+	if (!cardKeys) {	// Initialisation à blanc de l'objet 'cardKeys'
 		cardKeys = [];
 		cardKeys.sort();
 		localStorage.setItem('cardKeys', JSON.stringify(cardKeys));
@@ -2073,6 +2079,11 @@ function loadAvailableCards(cardKeys = JSON.parse(localStorage.getItem('cardKeys
 	document.querySelector('#load-card-options').innerHTML = '<option selected="selected" disabled>'+St_maskOptionNone+'</option>';
 	cardKeys.forEach(item => {
 		var cardKeyOption = document.createElement('option');
+		if (!localStorage[item]) {
+			//cardKeyOption.disabled = (!localStorage[item]);		// désactive la ligne si carte absente du localStorage
+									// Si on désactive la ligne, il sera impossible de la supprimer (suppression unitaire)
+			cardKeyOption.className='CardMissing';					// La classe permettre de mettre la ligne en couleur
+			}
 		cardKeyOption.innerHTML = item;
 		document.querySelector('#load-card-options').appendChild(cardKeyOption);
 	});

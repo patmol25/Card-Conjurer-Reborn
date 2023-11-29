@@ -484,9 +484,13 @@ a.underline {
 
 /*GowaP - mise en évidence acrue de la notification par un clignotement rapide */
 @keyframes notification_blinking {
-	0%		{	background-color:unset;						}
-	100%	{	background-color: var(--input-background);	}
+	0%	{	background-color: var(--color-selected);		}	/* unset laisse voir le dessous */
+	50%	{	background-color: var(--input-background);		}
   }
+
+.CardMissing {	/* Classe de mise en évidence d'une carte listé et manquant dans l'entrepot locale (localStorage) */
+	color : red;
+}
 
 .notification>h3 {
 	text-align: center;
