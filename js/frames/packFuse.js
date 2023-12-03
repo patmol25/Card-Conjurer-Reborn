@@ -16,7 +16,8 @@ document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
 document.querySelector('#loadFrameVersion').onclick = async function() {
 	// Notification
-	notify('At this time, rotated set symbols and second pieces of art is not an option, unless added manually with external software. Apologies for the inconvenience!', 10);
+//EN:	notify('At this time, rotated set symbols and second pieces of art is not an option, unless added manually with external software. Apologies for the inconvenience!', 10);
+/*FR:*/	notify('À l’heure actuelle, il n’est pas possible de faire pivoter les symboles d’ensemble et les deuxièmes œuvres d’art, à moins qu’ils ne soient ajoutés manuellement à l’aide d’un logiciel externe. Toutes nos excuses pour la gêne occasionnée !', 15);
 	//resets things so that every frame doesn't have to
 	await resetCardIrregularities();
 	//sets card version

@@ -3,13 +3,14 @@ if (!loadedVersions.includes('/js/frames/versionDungeon.js')) {
 	loadedVersions.push('/js/frames/versionDungeon.js');
 	sizeCanvas('dungeon');
 	sizeCanvas('dungeonFX');
-	document.querySelector('#creator-menu-tabs').innerHTML += '<h3 class="selectable readable-background" onclick="toggleCreatorTabs(event, `dungeon`)">Dungeon</h3>';
+	document.querySelector('#creator-menu-tabs').innerHTML += '<h3 class="selectable readable-background" onclick="toggleCreatorTabs(event, `dungeon`)">Dongeon</h3>';
 	var newHTML = document.createElement('div');
 	newHTML.id = 'creator-menu-dungeon';
 	newHTML.classList.add('hidden');
+	/*EN:*/
 	newHTML.innerHTML = `
 	<div class='readable-background padding margin-bottom'>
-		<h5 class='padding margin-bottom input-description'>Use the following textbox to specify your room locations and sizes.<br><br>Each room must be separated by a new line, and may only include numeric characters.<br><br>Each number must be seperated by a comma, and ordered as follows:<br>X,Y,Width,Height,Door-1,Door-2,...<br>(doors are optional).<br><br>Apologies for the difficult interface; I hope to implement an improved UI in the future.</h5>
+		<h5 lang=EN class='padding margin-bottom input-description'>Use the following textbox to specify your room locations and sizes.<br><br>Each room must be separated by a new line, and may only include numeric characters.<br><br>Each number must be seperated by a comma, and ordered as follows:<br>X,Y,Width,Height,Door-1,Door-2,...<br>(doors are optional).<br><br>Apologies for the difficult interface; I hope to implement an improved UI in the future.</h5>
 		<textarea id='dungeon-input' type='number' class='input margin-bottom' oninput='dungeonEditedBuffer();'>0,0,16,2,3,11\n0,2,8,4,1.5,5.5\n8,2,8,4,0.5,4.5\n0,6,5,5,1.5\n5,6,6,5,0.5,3.5\n11,6,5,5,1.5\n0,11,8,4,3\n8,11,8,4,3\n0,15,16,4,7</textarea>
 	</div>
 	<div class='readable-background padding'>
@@ -21,6 +22,22 @@ if (!loadedVersions.includes('/js/frames/versionDungeon.js')) {
 			<option value="R">Red</option>
 			<option value="G">Green</option>
 			<option value="C">Colorless</option>
+		</select>
+	</div>`;
+	newHTML.innerHTML = `
+	<div class='readable-background padding margin-bottom'>
+		<h5 lang="fr" class='padding margin-bottom input-description'>Utilisez la zone de texte suivante pour spécifier l’emplacement et la taille de vos pièces. <br><br>Chaque pièce doit être séparée par une nouvelle ligne et ne peut comporter que des caractères numériques.<br><br>Chaque numéro doit être séparé par une virgule et ordonné comme suit : X, <br>Y, Largeur, Hauteur, Porte-1, Porte-2,... <br>(les portes sont facultatives). <br><br>Toutes nos excuses pour l’interface difficile ; J’espère mettre en œuvre une interface utilisateur améliorée à l’avenir.</h5>
+		<textarea id='dungeon-input' type='number' class='input margin-bottom' oninput='dungeonEditedBuffer();'>0,0,16,2,3,11\n0,2,8,4,1.5,5.5\n8,2,8,4,0.5,4.5\n0,6,5,5,1.5\n5,6,6,5,0.5,3.5\n11,6,5,5,1.5\n0,11,8,4,3\n8,11,8,4,3\n0,15,16,4,7</textarea>
+	</div>
+	<div class='readable-background padding'>
+		<h5 class='padding margin-bottom input-description' lang="fr">Sélectionnez la couleur du mur du donjon :</h5>
+		<select id='dungeon-color' class='input' onchange='dungeonEditedBuffer();'>
+			<option value="W">Blanc</option>
+			<option value="U">Bleu</option>
+			<option value="B" selected="selected">Noir</option>
+			<option value="R">Rouge</option>
+			<option value="G">Vert</option>
+			<option value="C">Incolore</option>
 		</select>
 	</div>`;
 	if (!card.dungeon) {

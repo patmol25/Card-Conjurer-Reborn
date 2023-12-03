@@ -104,13 +104,12 @@
 			<div id='creator-menu-tabs' class='creator-menu-tabs'>
 				<h3 class='selectable readable-background selected' onclick='toggleCreatorTabs(event, "frame")' title="Frame">Trame</h3>
 				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "text")' title="Text">Texte</h3>
-				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "art")' title="Dessin">Dessin</h3>
-				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "setSymbol")' title="Set Symbole">Famille</h3>
+				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "art")' title="Art">Dessin</h3>
+				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "setSymbol")' title="Set Symbol">Famille</h3>
 				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "watermark")' title="Watermark">Filigrane</h3>
 				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "bottomInfo")' title="Collector">Collection</h3>
 				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "import")'>Import/Sauvegarde</h3>
-				<h3 class='selectable readable-background'
-					onclick='toggleCreatorTabs(event, "tutorial"); loadTutorialVideo();'>Tutoriel</h3>
+				<h3 class='selectable readable-background' onclick='toggleCreatorTabs(event, "tutorial"); loadTutorialVideo();'>Tutoriel</h3>
 			</div>
 			<div id='creator-menu-sections' class='margin-bottom'>
 				<div id='creator-menu-frame'>
@@ -132,7 +131,7 @@
 								<option disabled>Trames Speciales</option>
 								<option value='Showcase-5'>Trames Showcase</option>
 								<option value='Promo-2'>Promos (Grand Dessin)</option>
-								<option value='Textless-4'>Sans texte / Dessin complet</option> //EN:Textless/Fullart
+								<option value='Textless-4'>Sans texte / Dessin complet</option>
 								<option disabled>Autres trames</option>
 								<option value='Custom'>Personnalisé</option>
 								<option value='Misc-2'>Ancien/Divers</option>
@@ -154,7 +153,7 @@
 						</label>
 					</div>
 					<div class='readable-background margin-bottom padding'>
-						<h5 class='margin-bottom padding input-description'>Sélectionnez une trame et un masque (mask) et ajoutez le à votre carte</h5>
+						<h5 class='margin-bottom padding input-description'>Sélectionnez une trame et un masque puis ajoutez le à votre carte</h5>
 						<div class='split-grid margin-bottom'>
 							<div id='frame-picker' class='frame-picker'></div>
 							<div id='mask-picker' class='mask-picker'></div>
@@ -211,8 +210,8 @@
 								onchange='setRoundedCorners(this.checked);'>
 							<span class='checkmark'></span>
 						</label>
-						<h5 class='input-description margin-bottom'>Affichez les lignes de guidage (<i>guidelines</i>) pour le texte, l'image, la filigrane (<i>watermark</i>) et le symbole de jeu (<i>set symbole</i>)</h5>
-						<label class='checkbox-container input margin-bottom'><i>Guidelines</i>
+						<h5 class='input-description margin-bottom'>Affichez les lignes de guidage pour le texte, l'image, le filigrane et le symbole de jeu (<i>set symbole</i>)</h5>
+						<label class='checkbox-container input margin-bottom'><i>Lignes de guidage</i>
 							<input id='show-guidelines' type='checkbox' onchange='drawCard();'>
 							<span class='checkmark'></span>
 						</label>
@@ -718,11 +717,11 @@
 							onchange='fetchScryfallData(this.value, importCard);' placeholder="Entrez le nom d'une carte">
 						<h5 class='padding margin-bottom input-description'>Sélectionnez la carte à importer</h5>
 						<select class='input margin-bottom' id='import-index' onchange='changeCardIndex();'></select>
-						<h5 class='padding input-description'>Sélectionnez le language de la carte (toutes les cartes ne sont pas disponibles dans toutes les langues)</h5>
+						<h5 class='padding input-description'>Sélectionnez le language de la carte (toutes les cartes ne sont pas disponibles dans toutes les langues).</h5>
 						<select class='input' id='import-language'
 							onchange='fetchScryfallData(document.querySelector("#import-name").value, importCard);'>
-							<option value="en">Anglais</option>
 							<option value="fr">Français</option>
+							<option value="en">Anglais</option>
 							<option value="es">Espagnol</option>
 							<option value="de">Allemand</option>
 							<option value="it">Italien</option>

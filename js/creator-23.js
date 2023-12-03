@@ -3,6 +3,8 @@ St_maskOptionNone = 'None Selected';		// valeur utilisée plusieurs fois dans de
 St_maskOptionNone = '- Aucune sélection -';
 St_unnamed ='unnamed';						// valeur utilisée plusieurs fois dans des tests
 St_unnamed ='SansNom';
+St_No_Mask ='No Mask';
+St_No_Mask ='Sans masque';
 
 
 
@@ -471,11 +473,11 @@ function frameOptionClicked(event) {
 		clickedFrameOption.classList.add('selected');
 		selectedFrameIndex = newFrameIndex;
 		if (!availableFrames[selectedFrameIndex].noDefaultMask) {
-			document.querySelector('#mask-picker').innerHTML = '<div class="mask-option" onclick="maskOptionClicked(event)"><img src="' + black.src + '"><p>No Mask</p></div>';
+			document.querySelector('#mask-picker').innerHTML = '<div class="mask-option" onclick="maskOptionClicked(event)"><img src="' + black.src + '"><p>' + St_No_Mask + '</p></div>';
 		} else {
 			document.querySelector('#mask-picker').innerHTML = '';
 		}
-		document.querySelector('#selectedPreview').innerHTML = '(Selected: ' + availableFrames[selectedFrameIndex].name + ', No Mask)';
+		document.querySelector('#selectedPreview').innerHTML = '(Sélection : ' + availableFrames[selectedFrameIndex].name + ', '+St_No_Mask+')';
 		if (availableFrames[selectedFrameIndex].masks) {
 			availableFrames[selectedFrameIndex].masks.forEach(item => {
 				const maskOption = document.createElement('div');
@@ -506,9 +508,9 @@ function maskOptionClicked(event) {
 	const newMaskIndex = getElementIndex(clickedMaskOption)
 	if (newMaskIndex != selectedMaskIndex) { button = null; }
 	selectedMaskIndex = newMaskIndex;
-	var selectedMaskName = 'No Mask'
+	var selectedMaskName = St_No_Mask;
 	if (selectedMaskIndex > 0) { selectedMaskName = availableFrames[selectedFrameIndex].masks[selectedMaskIndex - 1].name; }
-	document.querySelector('#selectedPreview').innerHTML = '(Selected: ' + availableFrames[selectedFrameIndex].name + ', ' + selectedMaskName + ')';
+	document.querySelector('#selectedPreview').innerHTML = '(Sélection : ' + availableFrames[selectedFrameIndex].name + ', ' + selectedMaskName + ')';
 	if (button) { button.click(); resetDoubleClick(); }
 }
 function resetDoubleClick() {

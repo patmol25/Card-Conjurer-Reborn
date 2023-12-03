@@ -71,7 +71,8 @@ function dropDrop(e) {
 async function uploadFiles(filesRaw, destination, otherParams = '') {
 	var files = ([...filesRaw]);
 	if (files.length > 9) {
-		if (!confirm('You are uploading ' + files.length + ' images. Would you like to continue?')) {
+//EN:		if (!confirm('You are uploading ' + files.length + ' images. Would you like to continue?')) {
+/*FR:*/		if (!confirm('Vous téléchargez ' + files.length + ' images. Voulez-vous continuer ?')) {
 			return;
 		}
 	}

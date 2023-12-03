@@ -16,7 +16,8 @@ document.querySelector('#loadFrameVersion').disabled = false;
 //defines process for loading this version, if applicable
 document.querySelector('#loadFrameVersion').onclick = async function() {
 	// Notification
-	notify('At this time, adding the second piece of art is not an option, unless added manually with external software. Apologies for the inconvenience!', 15);
+//EN:	notify('At this time, adding the second piece of art is not an option, unless added manually with external software. Apologies for the inconvenience!', 15);
+/*FR:*/	notify('À l’heure actuelle, l’ajout de la deuxième œuvre d’art n’est pas une option, à moins qu’il ne soit ajouté manuellement avec un logiciel externe. Toutes nos excuses pour la gêne occasionnée !', 15);
 	//resets things so that every frame doesn't have to
 	await resetCardIrregularities();
 	//sets card version
